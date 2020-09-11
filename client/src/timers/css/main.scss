@@ -1,0 +1,397 @@
+$accent: #3d82f0;
+$accent1: #174294;
+$green: #009409;
+$red: red;
+$col-1: #f0f0f0;
+$col-2: #f4f4fc;
+// $col-3: #e5eafd;
+// $col-3: #f7f7f7;
+$col-3: #f4f4fc;
+$col-4: #eaeefd;
+$white: #fff;
+$black: #000;
+$black1: #6666;
+$shadow: -1px -1px 5px $white, 2px 2px 3px rgba(0, 0, 0, 0.3);
+$shadow1: 0 -1px 3px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.1);
+$transition: 0.3s;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Roboto Slab", serif;
+  font-size: 1.4rem;
+  background-color: $col-1;
+  overflow-x: hidden;
+}
+button {
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}
+ul {
+  list-style: none;
+}
+li {
+  display: inline-block;
+}
+.u-center {
+  text-align: center;
+}
+.container {
+  max-width: 114rem;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+
+  .col {
+    width: calc((100% - 12rem) / 4);
+
+    &:not(:last-child) {
+      margin-right: 3rem;
+    }
+  }
+}
+.red {
+  background-color: $red;
+  transition: $transition;
+  &:hover {
+    background-color: lighten($red, 10%);
+  }
+}
+.green {
+  background-color: lighten($accent, 3%);
+  transition: $transition;
+
+  &:hover {
+    background-color: lighten($green, 20%);
+  }
+}
+
+.timerdashboard {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.main {
+  font-size: 3.5rem;
+  background-color: $col-4;
+  color: $accent;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+}
+
+.timer {
+  overflow: hidden;
+  margin-bottom: 3rem;
+  background-color: $col-3;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: $shadow;
+  &-head {
+    padding: 2.5rem 0 4rem 0;
+    position: relative;
+    background-color: $accent;
+    &_heading {
+      font-size: 2.1rem;
+      text-transform: capitalize;
+      font-weight: 500;
+    }
+    h2 {
+      font-family: "Lato", sans-serif;
+      font-weight: 300;
+      text-transform: lowercase;
+      color: darken($col-3, 4%);
+    }
+
+    &_img {
+      transform: rotate(180deg);
+      position: absolute;
+      width: 100%;
+      height: 60%;
+      left: 0;
+      right: 0;
+      top: 90%;
+    }
+  }
+  &-body {
+    padding-top: 5rem;
+  }
+
+  &-time {
+    background-color: darken($col-3, 4%);
+    display: inline-block;
+    margin: auto;
+    color: $accent;
+    font-size: 3.8rem;
+    letter-spacing: 2px;
+    padding: 1.2rem 0.7rem;
+    width: 89%;
+    border-radius: 5px;
+    box-shadow: $shadow;
+  }
+  &-controls {
+    margin-top: 1.8rem;
+    button {
+      width: 4rem;
+      color: $col-2;
+      height: 4rem;
+      border-radius: 50%;
+      background-color: $accent;
+      margin: 0 1.6rem;
+      &:hover {
+        background-color: darken($accent, 8%);
+      }
+    }
+  }
+  &-button {
+    margin-top: 1.7rem;
+    display: block;
+    width: 100%;
+    color: #f2f2f2;
+    padding: 1.5rem 0.8rem;
+    font-size: 1.9rem;
+    letter-spacing: 1px;
+    //box-shadow: $shadow1;
+  }
+}
+.timerform {
+  margin-bottom: 3rem;
+  background-color: $accent;
+  box-shadow: $shadow;
+  overflow: hidden;
+  border-radius: 5px;
+  &-head {
+    padding: 1.5rem 0;
+    background-color: $col-3;
+    position: relative;
+    &_img {
+      @extend .timer-head_img;
+      height: 100%;
+      top: 90%;
+    }
+
+    h1 {
+      color: lighten($accent, 4%);
+      text-transform: capitalize;
+      font-size: 2.1rem;
+    }
+  }
+  &-body {
+    padding-top: 4rem;
+  }
+
+  &-controls {
+    padding: 4rem 0;
+    display: flex;
+    justify-content: space-evenly;
+    background: url(../images/wave31.svg) no-repeat bottom;
+    background-size: cover;
+
+    button {
+      padding: 1.2rem 0.8rem;
+      border-radius: 5px;
+      background-color: lighten($accent, 1%);
+      color: $white;
+      border: 1px solid $col-3;
+      transition: 0.3s ease-out;
+
+      &:hover {
+        background-color: lighten($accent, 7%);
+      }
+
+      span {
+        display: inline-block;
+        font-size: 1.5rem;
+        margin-left: 0.9rem;
+      }
+    }
+  }
+}
+.form-group {
+  font-family: "Lato", sans-serif;
+  position: relative;
+  width: 90%;
+  margin: auto;
+  .error {
+    position: absolute;
+    bottom: 17%;
+    right: 2%;
+  }
+
+  .count {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    line-height: 1.7;
+    // border: 2px solid green;
+    background-color: lighten($green, 3%);
+    color: #fff;
+  }
+  &:first-child {
+    margin-bottom: 1.4rem;
+  }
+  label {
+    display: block;
+    text-align-last: left;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    margin-bottom: 0.7rem;
+
+    color: $col-3;
+  }
+  input {
+    width: 100%;
+    line-height: 1.4;
+    font-size: 1.7rem;
+    padding: 0.8rem 0.7rem;
+    padding-right: 2.4rem;
+    color: #6e6c6e;
+    border: 1px solid $col-3;
+    background-color: $col-2;
+    border-radius: 5px;
+  }
+}
+.modal {
+  &-content {
+    position: fixed;
+    bottom: 4rem;
+    right: 4rem;
+    z-index: 1;
+    font: 1.5rem;
+    width: 28rem;
+    text-align: right;
+
+    .overlay {
+      position: fixed;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      transform: scale(0);
+    }
+
+    input#modal-toog {
+      display: none;
+    }
+    .col {
+      background-color: $white;
+    }
+    .timerform {
+      transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      background-color: $white;
+      animation: sc 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1 backwards;
+      display: none;
+      opacity: 0;
+
+      label {
+        color: $accent;
+      }
+      input {
+        border: 1px solid $accent;
+      }
+    }
+
+    input#modal-toog:checked + .timerform {
+      transform: scale(1) translateY(0);
+      box-shadow: none;
+      display: block;
+      opacity: 1;
+    }
+    input#modal-toog:checked ~ .overlay {
+      transform: scale(1);
+    }
+    input#modal-toog:checked ~ .lab {
+      transform: scale(0.91) rotate(45deg);
+      &::before {
+        animation: none;
+      }
+    }
+
+    & > label {
+      //this and lab na dsame
+      margin-top: 3rem;
+      display: inline-block;
+      width: 5.5rem;
+      height: 5.5rem;
+      font-size: 3rem;
+      line-height: 2;
+      color: $col-1;
+      border-radius: 50%;
+      background-color: $accent;
+      position: relative;
+      cursor: pointer;
+      position: relative;
+      z-index: 10;
+    }
+    .lab {
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      &:hover {
+        background-color: darken($color: $accent, $amount: 5%);
+        transform: scale(1.07);
+        transition: 0.2s;
+
+        &::before {
+          animation: unset;
+        }
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background-color: $accent;
+        border-radius: 50%;
+        animation: scale 2s linear infinite;
+      }
+    }
+  }
+}
+@keyframes scale {
+  40% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(2);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+@keyframes sc {
+  from {
+    transform: translateY(120%) scale(0);
+  }
+  to {
+    transform: translateY(0) scale(1);
+  }
+}
