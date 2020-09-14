@@ -2,6 +2,8 @@
   "name": "timers-app",
   "version": 1,
   "env": {
-    "MONGODB_URI": "mongodb+srv://ben:<password>@benjs-cluster.udh1t.mongodb.net/<dbname>?retryWrites=true&w=majority"
-  }
+    "MONGODB_URI": "mongodb+srv://ben:1234@benjs-cluster.udh1t.mongodb.net/timers?retryWrites=true&w=majority"
+  },
+
+  "routes": [{ "src": "/", "dest": "/getTimers.js" }]
 }
