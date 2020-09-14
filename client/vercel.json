@@ -3,10 +3,5 @@
   "version": 2,
   "env": {
     "MONGODB_URI": "mongodb+srv://ben:1234@benjs-cluster.udh1t.mongodb.net/timers?retryWrites=true&w=majority"
-  },
-
-  "routes": [
-    { "src": "/", "dest": "/public/index.html" },
-    { "src": "/api/timers", "dest": "/api/getTimers.js" }
-  ]
+  }
 }

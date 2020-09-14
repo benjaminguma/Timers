@@ -12,7 +12,7 @@ import axios from "axios";
 const get_timers = (callback) => {
   return axios({
     method: "GET",
-    url: "/api/timers",
+    url: "/api/getTimers",
     headers: {
       accept: "application/json",
     },
