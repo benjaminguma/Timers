@@ -17,5 +17,5 @@ module.exports = async (req, res) => {
     return res.status(500);
   }
 
-  res.send(data);
+  res.send("hello");
 };
