@@ -1,0 +1,7 @@
+{
+  "name": "timers-app",
+  "version": 1,
+  "env": {
+    "MONGODB_URI": "mongodb+srv://ben:<password>@benjs-cluster.udh1t.mongodb.net/<dbname>?retryWrites=true&w=majority"
+  }
+}
