@@ -18,9 +18,9 @@ const get_timers = (callback) => {
     },
   })
     .then((res) => {
-      if (res.statusText !== "OK") {
-        throw Error("server had problems fetching data");
-      }
+      // if (res.statusText !== "OK") {
+      //   throw Error("server had problems fetching data");
+      // }
       return res;
     })
     .then(callback)
@@ -37,17 +37,13 @@ const post_timer = (timers) => {
       ...timers,
     },
   })
-    .then((res) => {
-      if (res.statusText !== "Created") {
-        throw Error("server had problems fetching data");
-      }
-    })
+    .then((res) => {})
     .catch((e) => console.log(e));
 };
 const delete_timer = (timer_id) => {
   return axios({
     method: "DELETE",
-    url: `/delTimers/?id=${timer_id}`,
+    url: `/del?id=${timer_id}`,
     headers: {
       accept: "application/json",
     },

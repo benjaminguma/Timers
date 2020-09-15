@@ -11,6 +11,10 @@
       "methods": ["POST"],
       "dest": "/api/postTimers.js"
     },
-    { "src": "/delTimers/(?<id>[^/]*)", "dest": "/api/delTimers.js?id=$id" }
+    {
+      "src": "/del(?<id>[^/]*)",
+      "methods": ["DELETE"],
+      "dest": "/api/delTimers.js?id=$id"
+    }
   ]
 }
