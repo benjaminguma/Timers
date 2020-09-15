@@ -12,7 +12,7 @@ import axios from "axios";
 const get_timers = (callback) => {
   return axios({
     method: "GET",
-    url: "/api/getTimers",
+    url: "/api/getall",
     headers: {
       accept: "application/json",
     },
@@ -29,7 +29,7 @@ const get_timers = (callback) => {
 const post_timer = (timers) => {
   return axios({
     method: "POST",
-    url: "/timers",
+    url: "/posttimer",
     headers: {
       accept: "application/json",
     },
@@ -47,7 +47,7 @@ const post_timer = (timers) => {
 const delete_timer = (timer_id) => {
   return axios({
     method: "DELETE",
-    url: `/timers/${timer_id}`,
+    url: `/delTimers/?id=${timer_id}`,
     headers: {
       accept: "application/json",
     },
@@ -61,7 +61,7 @@ const delete_timer = (timer_id) => {
 const patch_timer = (timer) => {
   return axios({
     method: "PATCH",
-    url: `/timers/`,
+    url: `/api/putTimers`,
     headers: {
       accept: "application/json",
     },

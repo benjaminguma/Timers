@@ -3,21 +3,18 @@ const client = new mongo(process.env.MONGODB_URI, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });
-export default async (req, res, next) => {
-  let data;
-  const timer = req.body;
+export default async (req, res) => {
+  let data = req.body;
+
   try {
     await client.connect();
-    // data = await client.db().collection("timers").find({}).toArray();
-    await client
+    client
       .db()
       .collection("timerscoll")
-      .insertOne({ ...timer });
-
-    console.log("post successful");
+      .updateOne({ id: req.body.id }, { $set: { ...data } });
   } catch (error) {
     return res.status(500);
   }
   //   client.close();
-  return res.status(201).json(timer);
+  return res.json({ msg: `timer with id of ${data.id} was updated` });
 };

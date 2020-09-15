@@ -2,6 +2,15 @@
   "name": "timers-app",
   "version": 2,
   "env": {
-    "MONGODB_URI": "mongodb+srv://ben:1234@benjs-cluster.udh1t.mongodb.net/timers?retryWrites=true&w=majority"
-  }
+    "MONGODB_URI": "mongodb+srv://ben:4321@benjs-cluster.udh1t.mongodb.net/timers?retryWrites=true&w=majority"
+  },
+  "routes": [
+    { "src": "/api/getall", "dest": "/api/getTimers.js" },
+    {
+      "src": "/posttimer",
+      "methods": ["POST"],
+      "dest": "/api/postTimers.js"
+    },
+    { "src": "/delTimers/(?<id>[^/]*)", "dest": "/api/delTimers.js?id=$id" }
+  ]
 }

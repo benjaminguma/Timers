@@ -4,20 +4,21 @@ const client = new mongo.MongoClient(process.env.MONGODB_URI, {
   useUnifiedTopology: true,
 });
 
-module.exports = async (req, res, next) => {
+export default async (req, res) => {
   try {
+    console.log("yewyeueueu", req.query.id);
     await client.connect();
     await client
       .db()
       .collection("timerscoll")
-      .deleteOne({ id: req.params.id }, (err, res) => {
+      .deleteOne({ id: req.query.id }, (err, res) => {
         if (err) next(err);
       });
-    console.log(req.params.id);
+    console.log(req.query.id);
   } catch (error) {
-    next(error);
+    console.log(error);
     return res.status(500);
   }
   //   client.close();
-  return res.json({ msg: `timer with id of ${req.params.id} was deleted` });
+  return res.json({ msg: `timer with id of ${req.query.id} was deleted` });
 };

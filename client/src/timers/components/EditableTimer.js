@@ -30,14 +30,12 @@ export default class EditableTimer extends Component {
       );
     } else {
       return (
-        <div className="col">
-          <TimerForm
-            ondelete={this.props.ondelete}
-            onupdate={this.props.onupdate}
-            toogleTimer={this.handleCancel}
-            {...this.props}
-          />
-        </div>
+        <TimerForm
+          ondelete={this.props.ondelete}
+          onupdate={this.props.onupdate}
+          toogleTimer={this.handleCancel}
+          {...this.props}
+        />
       );
     }
   }

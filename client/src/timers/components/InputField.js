@@ -1,20 +1,40 @@
 import React, { Component } from "react";
 import warning from "../images/warning.svg";
+import { motion, AnimatePresence } from "framer-motion";
 
+const variant = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+  },
+  exit: {
+    opacity: 0,
+    scale: 1.4,
+  },
+};
 export default class InputField extends Component {
   handleRemaining = () => {
     const { length, value } = this.props;
     let remainingText = length - value.length;
-    if (remainingText <= 10 && value !== "") {
-      console.log(remainingText, value);
-      return (
-        <div key={2} className="error count">
-          <p> {remainingText}</p>
-        </div>
-      );
-    }
 
-    return null;
+    return (
+      <AnimatePresence>
+        {remainingText <= 10 && value !== "" ? (
+          <motion.div
+            variants={variant}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            key={2}
+            className="error count"
+          >
+            <p> {remainingText}</p>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    );
   };
   render() {
     const { value, id, length, onChange } = this.props;

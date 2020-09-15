@@ -17,13 +17,14 @@ export default class TimersDashboard extends Component {
     timers: [],
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     // this.getem = setInterval((params) => {
     //   client.get_timers((res) => {
     //     this.setState({ timers: res.data });
     //   });
     // }, 5000);
     client.get_timers((res) => {
+      console.log(res.data);
       this.setState({ timers: res.data });
     });
   }
@@ -59,7 +60,6 @@ export default class TimersDashboard extends Component {
       date = new Date().getTime();
     timers = timers.map((e) => {
       if (e.id === timer_id) {
-        console.log(date);
         return Object.assign({}, e, { runningSince: date });
       }
 

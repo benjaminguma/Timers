@@ -36,45 +36,47 @@ export default class TimerForm extends Component {
     const { title, id, project, toogleTimer } = this.props;
     const text = id ? "update" : "create";
     return (
-      <div className="timerform">
-        <div className="timerform-head u-center">
-          <h1>{text} timer</h1>
-          <svg className="timerform-head_img">
-            <use xlinkHref={`${wave}#wave`}></use>
-          </svg>
-        </div>
-        <div className="timerform-body u-center">
-          <form action="/" method="get">
-            <InputField
-              type="text"
-              id="title"
-              value={this.state.title}
-              length="25"
-              onChange={this.handleInput}
-            />
-            <InputField
-              type="text"
-              id="project"
-              length="25"
-              value={this.state.project}
-              onChange={this.handleInput}
-            />
-          </form>
-        </div>
-        <div className="timerform-controls">
-          <button
-            onClick={id ? this.handleSubmit : this.handleCreate}
-            type="submit"
-          >
-            {text} <span className="fas fa-pen"></span>
-          </button>
-          {title && (
-            <button onClick={toogleTimer}>
-              cancel <span className="fas fa-times"></span>
+      <>
+        <div className="timerform">
+          <div className="timerform-head u-center">
+            <h1>{text} timer</h1>
+            <svg className="timerform-head_img">
+              <use xlinkHref={`${wave}#wave`}></use>
+            </svg>
+          </div>
+          <div className="timerform-body u-center">
+            <form action="/" method="get">
+              <InputField
+                type="text"
+                id="title"
+                value={this.state.title}
+                length="25"
+                onChange={this.handleInput}
+              />
+              <InputField
+                type="text"
+                id="project"
+                length="25"
+                value={this.state.project}
+                onChange={this.handleInput}
+              />
+            </form>
+          </div>
+          <div className="timerform-controls">
+            <button
+              onClick={id ? this.handleSubmit : this.handleCreate}
+              type="submit"
+            >
+              {text} <span className="fas fa-pen"></span>
             </button>
-          )}
+            {title && (
+              <button onClick={toogleTimer}>
+                cancel <span className="fas fa-times"></span>
+              </button>
+            )}
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }

@@ -28,7 +28,7 @@ export default class Timer extends Component {
     } = this.props;
     let time = helpers.TimerHuman({ runningSince, elapsed });
     return (
-      <div className="col">
+      <>
         <div className="timer">
           <div className="timer-head u-center">
             <h1 className="timer-head_heading">{title}</h1>
@@ -60,7 +60,7 @@ export default class Timer extends Component {
             />
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }
