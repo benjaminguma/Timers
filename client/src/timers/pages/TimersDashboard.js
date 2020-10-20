@@ -80,7 +80,6 @@ export default class TimersDashboard extends Component {
       return e;
     });
     this.setState({ timers });
-    alert("timer-stopped");
     client.patch_timer({ ...timer_to_update });
   };
   render() {
