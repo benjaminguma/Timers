@@ -14,6 +14,29 @@ $black1: #6666;
 $shadow: -1px -1px 5px $white, 2px 2px 3px rgba(0, 0, 0, 0.3);
 $shadow1: 0 -1px 3px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.1);
 $transition: 0.3s;
+
+@mixin respond($device) {
+  @if ($device == tab_land) {
+    $dev: 1024/16 * 1em;
+    @media (max-width: $dev) {
+      @content;
+    }
+  } @else if ($device == tab_port) {
+    $dev: 900/16 * 1em;
+    @media (max-width: $dev) {
+      @content;
+    }
+  } @else if ($device == gsm) {
+    $dev: 420/16 * 1em;
+    @media (max-width: $dev) {
+      @content;
+    }
+  } @else {
+    @media (max-width: #{$device/16}em) {
+      @content;
+    }
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -58,12 +81,38 @@ li {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  @include respond(tab_port) {
+    justify-content: space-around;
+  }
+  @include respond(607) {
+    flex-direction: column;
+    align-items: center;
+  }
 
   .col {
     width: calc((100% - 12rem) / 4);
 
+    @include respond(tab_land) {
+      width: calc((100% - 12rem) / 3);
+    }
+    @include respond(800) {
+      width: calc((100% - 15rem) / 2);
+    }
+    @include respond(tab_port) {
+      width: calc((100% - 5rem) / 2);
+    }
+    @include respond(gsm) {
+      width: 80%;
+    }
+
     &:not(:last-child) {
       margin-right: 3rem;
+      @include respond(tab_land) {
+        margin-right: 1.5rem;
+      }
+      @include respond(gsm) {
+        margin-right: 0;
+      }
     }
   }
 }
@@ -95,6 +144,12 @@ li {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
   padding: 1rem 0;
+  @include respond(tab_port) {
+    font-size: 3rem;
+  }
+  @include respond(gsm) {
+    font-size: 2.5rem;
+  }
 }
 
 .timer {
@@ -145,6 +200,12 @@ li {
     width: 89%;
     border-radius: 5px;
     box-shadow: $shadow;
+    @include respond(tab_port) {
+      font-size: 3.5rem;
+    }
+    @include respond(gsm) {
+      font-size: 3.2rem;
+    }
   }
   &-controls {
     margin-top: 1.8rem;
@@ -278,6 +339,10 @@ li {
     font: 1.5rem;
     width: auto;
     text-align: right;
+    @include respond(gsm) {
+      bottom: 0;
+      right: 0;
+    }
 
     .overlay {
       position: fixed;
@@ -302,6 +367,9 @@ li {
       animation: sc 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1 backwards;
       display: none;
       opacity: 0;
+      @include respond(gsm) {
+        width: 79vw;
+      }
 
       label {
         color: $accent;
@@ -342,6 +410,10 @@ li {
       cursor: pointer;
       position: relative;
       z-index: 10;
+      @include respond(gsm) {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
     }
     .lab {
       img {
@@ -373,6 +445,12 @@ li {
       }
     }
   }
+}
+footer {
+  background-color: $col-4;
+  color: $accent;
+  font-size: 1.6rem;
+  padding: 2rem 0;
 }
 @keyframes scale {
   40% {

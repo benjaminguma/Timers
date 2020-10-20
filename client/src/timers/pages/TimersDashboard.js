@@ -94,6 +94,7 @@ export default class TimersDashboard extends Component {
           stoptimer={this.handleStopTimer}
           timers={this.state.timers}
         />
+        <footer className="u-center">created in Gumaa's lab</footer>
       </div>
     );
   }

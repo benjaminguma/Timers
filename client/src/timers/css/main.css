@@ -59,12 +59,67 @@ li {
       flex-wrap: wrap;
 }
 
+@media (max-width: 56.25em) {
+  .container {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
+@media (max-width: 37.9375em) {
+  .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .container .col {
   width: calc((100% - 12rem) / 4);
 }
 
+@media (max-width: 64em) {
+  .container .col {
+    width: calc((100% - 12rem) / 3);
+  }
+}
+
+@media (max-width: 50em) {
+  .container .col {
+    width: calc((100% - 15rem) / 2);
+  }
+}
+
+@media (max-width: 56.25em) {
+  .container .col {
+    width: calc((100% - 5rem) / 2);
+  }
+}
+
+@media (max-width: 26.25em) {
+  .container .col {
+    width: 80%;
+  }
+}
+
 .container .col:not(:last-child) {
   margin-right: 3rem;
+}
+
+@media (max-width: 64em) {
+  .container .col:not(:last-child) {
+    margin-right: 1.5rem;
+  }
+}
+
+@media (max-width: 26.25em) {
+  .container .col:not(:last-child) {
+    margin-right: 0;
+  }
 }
 
 .red {
@@ -101,6 +156,18 @@ li {
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
   padding: 1rem 0;
+}
+
+@media (max-width: 56.25em) {
+  .main {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 26.25em) {
+  .main {
+    font-size: 2.5rem;
+  }
 }
 
 .timer {
@@ -159,6 +226,18 @@ li {
   border-radius: 5px;
   -webkit-box-shadow: -1px -1px 5px #fff, 2px 2px 3px rgba(0, 0, 0, 0.3);
           box-shadow: -1px -1px 5px #fff, 2px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 56.25em) {
+  .timer-time {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 26.25em) {
+  .timer-time {
+    font-size: 3.2rem;
+  }
 }
 
 .timer-controls {
@@ -308,6 +387,13 @@ li {
   text-align: right;
 }
 
+@media (max-width: 26.25em) {
+  .modal-content {
+    bottom: 0;
+    right: 0;
+  }
+}
+
 .modal-content .overlay {
   position: fixed;
   z-index: -1;
@@ -336,6 +422,12 @@ li {
           animation: sc 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1 backwards;
   display: none;
   opacity: 0;
+}
+
+@media (max-width: 26.25em) {
+  .modal-content .timerform {
+    width: 79vw;
+  }
 }
 
 .modal-content .timerform label {
@@ -386,6 +478,13 @@ li {
   z-index: 10;
 }
 
+@media (max-width: 26.25em) {
+  .modal-content > label {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
 .modal-content .lab img {
   position: absolute;
   top: 50%;
@@ -419,6 +518,13 @@ li {
   border-radius: 50%;
   -webkit-animation: scale 2s linear infinite;
           animation: scale 2s linear infinite;
+}
+
+footer {
+  background-color: #eaeefd;
+  color: #3d82f0;
+  font-size: 1.6rem;
+  padding: 2rem 0;
 }
 
 @-webkit-keyframes scale {
