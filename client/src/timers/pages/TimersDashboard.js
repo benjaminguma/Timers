@@ -24,7 +24,6 @@ export default class TimersDashboard extends Component {
     //   });
     // }, 5000);
     client.get_timers((res) => {
-      console.log(res.data);
       this.setState({ timers: res.data });
     });
   }
@@ -69,16 +68,20 @@ export default class TimersDashboard extends Component {
   };
   handleStopTimer = (timer_id) => {
     let { timers } = this.state,
+      timer_to_update,
       date = new Date().getTime();
     timers = timers.map((e) => {
       if (e.id == timer_id) {
         let elapsed = date - e.runningSince + e.elapsed;
-        return Object.assign({}, e, { elapsed, runningSince: null });
+        timer_to_update = Object.assign({}, e, { elapsed, runningSince: null });
+        console.log(timer_to_update);
+        return timer_to_update;
       }
-
       return e;
     });
     this.setState({ timers });
+    alert("timer-stopped");
+    client.patch_timer({ ...timer_to_update });
   };
   render() {
     return (

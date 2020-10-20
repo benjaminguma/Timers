@@ -12,9 +12,14 @@
       "dest": "/api/postTimers.js"
     },
     {
-      "src": "/del(?<id>[^/]*)",
+      "src": "/del",
       "methods": ["DELETE"],
-      "dest": "/api/delTimers.js?id=$id"
+      "dest": "/api/delTimers.js"
+    },
+    {
+      "src": "/putTimer",
+      "methods": ["PUT"],
+      "dest": "/api/putTimers.js"
     }
   ]
 }

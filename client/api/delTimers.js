@@ -7,13 +7,15 @@ const client = new mongo.MongoClient(process.env.MONGODB_URI, {
 export default async (req, res) => {
   try {
     await client.connect();
-    console.log("came here");
     client
       .db()
       .collection("timerscoll")
-      .deleteOne({ id: req.query.id }, (err, res) => {
-        if (err) next(err);
+      .deleteOne({ id: req.body.id }, (err, res) => {
+        if (err) {
+          console.log(err.message, req.body);
+        }
       });
+    console.log("deleted o", req.body);
   } catch (error) {
     return res.status(500);
   }

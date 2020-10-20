@@ -43,13 +43,15 @@ const post_timer = (timers) => {
 const delete_timer = (timer_id) => {
   return axios({
     method: "DELETE",
-    url: `/del?id=${timer_id}`,
+    url: `/del`,
+    data: {
+      id: timer_id,
+    },
     headers: {
       accept: "application/json",
     },
   })
     .then((res) => {
-      console.log(res);
       return res;
     })
     .catch((e) => console.log(e));
@@ -66,7 +68,6 @@ const patch_timer = (timer) => {
     },
   })
     .then((res) => {
-      console.log(res);
       return res;
     })
     .catch((e) => console.log(e));

@@ -31,10 +31,14 @@ const anim = {
 
 export default class TimerList extends Component {
   createTimer = (timer) => (
-    <AnimatePresence>
-      <motion.div variants={animation} exit="exit" className="col">
+    <AnimatePresence key={timer.id}>
+      <motion.div
+        key={timer.id}
+        variants={animation}
+        exit="exit"
+        className="col"
+      >
         <EditableTimer
-          key={timer.id}
           starttimer={this.props.starttimer}
           stoptimer={this.props.stoptimer}
           onupdate={this.props.onupdate}
